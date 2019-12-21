@@ -5,17 +5,33 @@
  */
 package problem2;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
- *
- * @author cgallinaro
+ * Main method to create board and run it
+ * @author bachle
  */
 public class Problem2 {
 
     /**
-     * @param args the command line arguments
+     * Creates the board
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void createBoard() {
+        JFrame board = new JFrame("Chess");
+        board.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        board.setSize(400, 422);
+        board.add(new chessWindow());
+        board.setResizable(false);
+        board.setVisible(true);
     }
-    
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                createBoard();
+            }
+        });
+    }
 }
